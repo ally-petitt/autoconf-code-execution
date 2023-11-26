@@ -33,11 +33,11 @@ This macro has 2 vulnerabilities. Proof-of-Concept examples of each will be show
 
 1. The first vulnerability is that `cat` is called without an absolute path, leaving it prone to modification of the $PATH environmental variable. A privileged user on the system may set the $PATH to point to a directory they control containing a malicious executable called `cat`. In scenarios where `autoconf` has an SUID bit set or can otherwise be run with elevated privileges, this can lead to privilege escalation.
 
-*Mitigation**: Replace "cat" with "/usr/bin/cat" in the definition of `m4_file_append`.
+**Mitigation**: Replace "cat" with "/usr/bin/cat" in the definition of `m4_file_append`.
 
 2. The arguments passed to `m4_file_append` are not sanitized before being passed into `m4_syscmd`. This means that hackers can directly insert malicious code as an argument to the macro and it will be executed when `autoconf` is ran!
 
-*Mitigation**: If possible, implement a more secure way to append to a file that does not involve running shell commands. I wish I could provide more guidance here but I am not very proficient in m4. In the case that this is not feasible, treat `$1` and `$2` as untrusted input and sanitize them. 
+**Mitigation**: If possible, implement a more secure way to append to a file that does not involve running shell commands. I wish I could provide more guidance here but I am not very proficient in m4. In the case that this is not feasible, treat `$1` and `$2` as untrusted input and sanitize them. 
 
 
 ## Autoconf - Invocation of Arbitrary M4 Macros 
