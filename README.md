@@ -8,9 +8,13 @@ Arbitrary Code execution can be obtained by running `/usr/bin/autoconf` when a c
 
 
 **Date**: 11/25/2023
+
 **Researcher**: Ally Petitt
+
 **Product Tested**: Autoconf v2.72c and prior (all but the 3rd bullet point were [fixed here](https://git.savannah.gnu.org/cgit/autoconf.git/commit/?id=11d8824daada20055c855f46ad7c45237c1ff455))
+
 **Impact**: Remote code execution that leads to the loss of availability, confidentiality, and integrity of the system. In certain cases it can also lead to privilege escalation.
+
 
 # Technical Details 
 
