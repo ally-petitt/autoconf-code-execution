@@ -1,6 +1,6 @@
 # Overview 
 
-Arbitrary Code execution can be obtained up running `/usr/bin/autoconf` when a crafted `configure.ac` exploits any of the following 3 vulnerabilities:
+Arbitrary Code execution can be obtained by running `/usr/bin/autoconf` when a crafted `configure.ac` exploits any of the following 3 vulnerabilities:
 
 *  Command injection in M4sugar due to lack of input sanitization (CWE-78).
 *  `cat` command being executed without absolute path in M4sugar, leaving it vulnerable to an untrusted PATH (CWE-427).
